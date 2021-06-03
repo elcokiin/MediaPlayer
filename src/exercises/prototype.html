@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    <header>
+        <a href="../terms.html"><em>Go Back</em></a>
+        <h1>Prototype</h1>
+    </header>
+    <main>
+        <p>Look the console</p>
+    </main>
+    <script>
+        // Objeto común y corriente
+        // const mario = {
+        //     name: "Mario",
+        // };
+        // mario.saludar = function(){
+        //     console.log(`Hola soy ${this.name}`)
+        // }
+        // mario.saludar();
+
+        // const zelda = {
+        //     name: "Zelda",
+        // };
+        // zelda.saludar = function(){
+        //     console.log(`Hola soy ${this.name}`)
+        // }
+        // zelda.saludar();
+        // ahora un poco más eficiente
+        // function Hero(name){
+        //     hero = {
+        //         name: name,
+        //     }
+        //     hero.saludar = function(){
+        //         console.log(`Hola soy ${this.name}`)
+        //     }
+        //     return hero;
+        // }
+
+        // const mario = Hero('Mario');
+        // mario.saludar();
+
+        // const zelda = Hero('Zelda');
+        // zelda.saludar();
+
+        // aun se puede mejorar más y no hacer una funcion por cada hero
+        // const heroMethods = {
+        //     saludar: function(){
+        //         console.log(`Hola soy ${this.name}`)
+        //     },
+        // }
+
+        // function Hero(name){
+        //     hero = {
+        //         name: name,
+        //     }
+        //     hero.saludar = heroMethods.saludar;
+        //     return hero;
+        // }
+
+        // const mario = Hero('Mario');
+        // mario.saludar();
+
+        // const zelda = Hero('Zelda');
+        // zelda.saludar();
+        // object.create
+        // const heroMethods = {
+        //     saludar: function(){
+        //         console.log(`Hola soy ${this.name}`)
+        //     },
+        // }
+
+        // function Hero(name){
+        //     hero = Object.create(heroMethods);
+        //     hero.name = name;
+        //     return hero;
+        // }
+
+        // const mario = Hero('Mario');
+        // mario.saludar();
+
+        // const zelda = Hero('Zelda');
+        // zelda.saludar();
+
+        // Los metodos de hero dentro de Hero
+        // const heroMethods = {
+        //     saludar: function(){
+        //         console.log(`Hola soy ${this.name}`)
+        //     },
+        // }
+
+        // function Hero(name){
+        //     hero = Object.create(Hero.prototype);
+        //     hero.name = name;
+        //     Hero.prototype.saludar = function(){
+        //         console.log(`Hola soy ${this.name}`)
+        //     };
+
+        //     return hero;
+        // }
+
+        // const mario = Hero('Mario');
+        // mario.saludar();
+
+        // const zelda = Hero('Zelda');
+        // zelda.saludar();
+
+        // new es un atajo sintactic sugar
+        const heroMethods = {
+            saludar: function(){
+                console.log(`Hola soy ${this.name}`)
+            },
+        }
+
+        function Hero(name){
+            //this = hero = Object.create(Hero.prototype);
+            this.name = name;
+        }
+        Hero.prototype.saludar = function(){
+            console.log(`New hero ${this.name}`)
+        };
+
+        const mario = new Hero('Mario');
+        mario.saludar();
+
+        const zelda = new Hero('Zelda');
+        zelda.saludar();
+        // exercise
+        // const personMethods = {
+        //     saludar: function(){
+        //         console.log(`Hello I'm ${this.name}`);
+        //     },
+        // }
+
+        // function Person(name){
+        //     const person = Object.create(personMethods);
+        //     person.name = name;
+        //     return person;
+        // }
+
+        // const diego = Person('Diego');
+        // diego.saludar();
+        // exercise 2
+        function Person(name){
+            this.name = name;
+        }
+        Person.prototype.saludar = function(){
+            console.log(`Hello my name is ${this.name}`)
+        };
+        const julian = new Person("Julian");
+        julian.saludar();
+    </script>
+</body>
+</html>

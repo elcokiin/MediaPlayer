@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype inheritance</title>
+</head>
+<body>
+    <a href="../terms.html"><em>Go back</em></a>
+    <h1>Prototype inheritance</h1>
+    <p>Look the console</p>
+    <script>
+        function Hero(name){
+            this.name = name;
+        }
+        Hero.prototype.saludar = function(){
+            console.log(`Hi my name is ${this.name}`);
+        }
+        const mario = new Hero('Mario');
+        //propiedades de la instancia
+        console.log(mario.name);
+        // propiedades de la clase
+        console.log(mario.saludar);
+        // propiedades heredadas ej: toString
+        console.log(mario.toString);
+        // hasOwnProperty (de dónde sale toString o esto?)
+        console.log(mario.hasOwnProperty('name'));
+        console.log(mario.hasOwnProperty('saludar'));
+    </script>
+</body>
+</html>
