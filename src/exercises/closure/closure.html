@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+<body>
+    <a href="../../terms.html"><em>Go back</em></a>
+    <h1>Closures</h1>
+    <p>Look the console</p>
+    <script>
+        let color = "green";
+
+        const printColor = () => {
+            console.log(color);
+        };
+        printColor();
+        // El proble con esto es que la variable la tenemos globalmente entonces como podemos arreglar esto ?
+        // Pues coloco mi variable dentro de una funsion que se va a llamar a ella misma
+
+        (()=>{
+            let color2 = "blue";
+
+            const printColor2 = () => {
+                console.log(color2);
+            };
+            printColor2();
+        })();
+        // esto se llama un IIFE INMIDETY INVOUCT FUCTION EXPRECTION
+
+        const makeColorPrint = (color) => {
+            let colorMessage = `This is a color ${color}`
+            return () => {
+                console.log(colorMessage);
+            };
+        };
+
+        let colorPrinter = makeColorPrint("yellow");
+        console.log(colorPrinter());
+        //Funciones que retornan otras funciones
+        const badMakeCounter = (n) => {
+            let count = n;
+            return{
+                counter: count
+            }
+        }
+        let counter = badMakeCounter(7).counter;
+        console.log(counter);
+        counter = 8;
+        console.log(counter);
+        //Lo malo de esto es que tengo acceso a el counter y lo puedo reescribir
+
+        const makeCounter = (n) => {
+            let count = n;
+            return {
+                increase: ()=>{
+                    count += 1;
+                },
+                decrease: ()=>{
+                    count -= 1;
+                },
+                getCount: ()=>{
+                    return count;
+                }
+            }
+        }
+        let counter2 = makeCounter(2);
+        console.log(counter2.getCount());
+        counter2.increase();
+        console.log(counter2.getCount());
+        counter2.decrease();
+        console.log(counter2.getCount());
+        //Variables Privadas
+    </script>
+</body>
+</html>

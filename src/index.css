@@ -29,8 +29,7 @@ body {
 }
 .video {
     height: 100%;
-    position: absolute;
 }
-.play {
+.controllers {
     position: absolute;
 }
