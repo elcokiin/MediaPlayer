@@ -10,7 +10,7 @@ const buttonControllerMute = document.querySelector(".mute");
 //elemento que vamos a utilizar
 
 const player = new MediaPlayer({ el: video, plugins: [
-    // new AutoPlay
+    new AutoPlay
     ] });
 
 buttonControllerPlay.addEventListener('click',() => {

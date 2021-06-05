@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generators</title>
+</head>
+<body>
+    <a href="../terms.html"><em>Go back</em></a>
+    <h1>Generators</h1>
+    <p>Look the console</p>
+    <script>
+        function* simpleGenerator() {
+            console.log('Generator Start');
+            yield 1;
+            yield 2;
+            yield 3;
+            console.log('Generator End');
+        }
+
+        const gen = simpleGenerator();
+
+        function* idMaker() {
+            let id = 1;
+            let reset;
+            while(true){
+                reset = yield id;
+                console.log(reset)
+                if (reset) {
+                    id = 1;
+                }
+                else{
+                    id += 1;
+                }
+            }
+        }
+
+        const generatorIds = idMaker();
+
+        function* fibonacci(){
+            let a = 1;
+            let b = 1;
+            while (true) {
+                const nextNumber = a + b;
+                yield nextNumber;
+                a = b;
+                b = nextNumber;
+            }
+        }
+
+        const algFibonacci = fibonacci();
+
+
+        // example
+        const obj = {
+            name: 'Diego',
+            age: 16,
+            country: "CO",
+        };
+        function* makerIds() {
+            let id = 0;
+            while(true){
+                id += 1;
+                yield id;
+            }
+        }
+        const ids = makerIds();
+        const arrayObj = Object.values(obj);
+        arrayObj.forEach(item => {
+            console.log(`${ids.next().value}). This is the object ${item}`)
+        });
+    </script>
+</body>
+</html>

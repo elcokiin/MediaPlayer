@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxis</title>
+</head>
+<body>
+    <header>
+        <a href="../terms.html"><em>Go Back</em></a>
+        <h1>Proxis</h1>
+    </header>
+    <main>
+        <p>Look the console</p>
+    </main>
+    <script src="https://unpkg.com/fast-levenshtein@2.0.6/levenshtein.js"></script>
+    <script>
+        // Proxi es parecido a getters y setters
+        //Levenshtein es la libreria que estamos usando para encontrar y dar sugerencias
+
+        const target = {
+            red: "Rojo",
+            greed: "Verde",
+            blue: "Azul",
+        }
+        const handler = {
+            get(obj, prop){
+                if(prop in obj){
+                    return obj[prop];
+                }
+
+                const suggestion = Object.keys(obj).find(key => {
+                    return Levenshtein.get(key, prop) < 3;
+                })
+                if(suggestion){
+                    console.log(`${prop} no se encontro. Quisiste decir ${suggestion}`)
+                }
+            }
+        }
+        const p = new Proxy(target, handler);
+    </script>
+</body>
+</html>
