@@ -1,16 +1,18 @@
 import MediaPlayer from './MediaPlayer.js';
 import AutoPlay from './plugins/AutoPlay.js';
+import AutoPause from './plugins/AutoPause.js';
+
 
 const video = document.querySelector(".video");
 const buttonControllerPlay = document.querySelector(".play");
 const buttonControllerMute = document.querySelector(".mute");
 
 // Play es metodo y pues lo que ago al decir player.play() es llamar el metodo play y darle play al
-//this.media que va a depender de o que sea config que en este caso va a ser un objeto el cual tiene un
+//this.media que va a depender de lo que sea config que en este caso va a ser un objeto el cual tiene un
 //elemento que vamos a utilizar
 
 const player = new MediaPlayer({ el: video, plugins: [
-    new AutoPlay
+    new AutoPlay(), new AutoPause(),
     ] });
 
 buttonControllerPlay.addEventListener('click',() => {
@@ -20,3 +22,9 @@ buttonControllerPlay.addEventListener('click',() => {
 buttonControllerMute.addEventListener('click',() => {
     player.toggleMute(buttonControllerMute);
 });
+
+if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('./sw.js').catch(error => {
+        console.log(error.message);
+    })
+}

@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>Abort Fetch</title>
+  </head>
+
+  <body>
+    <a href="../terms.html"><em>Go back</em></a>
+    <p><em>Abre la consola</em></p>
+
+    <img id="huge-image" />
+
+    <button id="load">Load HUGE Image</button>
+    <button id="stop" disabled>Stop Fetching</button>
+
+    <button id="button1">Active</button>
+    <button id="button2">Disabled</button>
+    <button></button>
+
+    <script>
+      const url ='https://images.pexels.com/photos/974470/nature-stars-milky-way-galaxy-974470.jpeg?q=100';
+      const img = document.getElementById('huge-image');
+      const loadButton = document.getElementById('load');
+      const stopButton = document.getElementById('stop');
+      let controller;
+
+      function startLoading() {
+        loadButton.disabled = true;
+        loadButton.innerText = 'Loading...';
+        stopButton.disabled = false;
+      }
+
+      function stopLoading() {
+        loadButton.disabled = false;
+        loadButton.innerText = 'Load HUGE Image';
+        stopButton.disabled = true;
+      }
+
+      loadButton.onclick = async function() {
+        startLoading();
+
+        controller = new AbortController();
+
+        try {
+          const response = await fetch(url, { signal: controller.signal });
+          const blob = await response.blob();
+          const imgUrl = URL.createObjectURL(blob);
+          img.src = imgUrl;
+        } catch (error) {
+          console.log(error.message);
+        }
+
+        stopLoading();
+      };
+
+      stopButton.onclick = function() {
+        controller.abort();
+        stopLoading();
+      };
+
+      // exercise
+      const button1 = document.getElementById('button1');
+      const button2 = document.getElementById('button2');
+
+      function clickButton1(){
+        button1.disabled = true;
+        button1.innerHTML = 'Disabled';
+        button2.disabled = false;
+        button2.innerHTML = 'Active';
+      }
+      function clickButton2(){
+        button2.disabled = true;
+        button2.innerHTML = 'Disabled';
+        button1.disabled = false;
+        button1.innerHTML = 'Active';
+      }
+      clickButton2();
+      button1.addEventListener('click', clickButton1);
+      button2.addEventListener('click', clickButton2);
+    </script>
+  </body>
+</html>

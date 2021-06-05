@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersection Observer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        header{
+            margin: 20px;
+        }
+        .container {
+            margin: 25vh 0;
+            width: 100vw;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="../terms.html"><em>Go back</em></a>
+        <h1>Intersection Observer</h1>
+    </header>
+    <main>
+        <p>Look the console</p>
+        <div class="container"></div>
+        <h2>Lorems</h2>
+            <p>
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error aspernatur sunt nisi iste autem veniam perferendis nesciunt debitis corporis ipsum! Facere consequuntur eligendi inventore molestias explicabo earum autem magnam quidem!
+Ipsam recusandae illum nihil ipsum adipisci eos, cum, fugit ad sit consectetur esse vel itaque! Sed consequatur accusantium velit aut reprehenderit eius reiciendis, dicta aperiam pariatur facere voluptatum nihil dolores?
+Aspernatur reprehenderit ad itaque quos animi eaque reiciendis molestias repudiandae, voluptatibus assumenda voluptate at ipsa. Aliquam quod quia ex repellendus excepturi nesciunt. Maiores velit reprehenderit fugiat vitae distinctio nobis corrupti.
+Nam minima ipsam, debitis aliquid maxime iusto vitae assumenda accusamus numquam! Distinctio impedit iure quis libero recusandae eligendi, earum architecto, officiis, facilis quae veritatis nesciunt. Quasi neque numquam voluptate maiores.
+Porro nihil inventore enim officia blanditiis autem neque aut architecto tenetur dolores velit, accusantium provident sapiente sed nobis quibusdam reiciendis, odio, repudiandae reprehenderit iste rerum deserunt dolorum. Fuga, illum placeat!</p><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error aspernatur sunt nisi iste autem veniam perferendis nesciunt debitis corporis ipsum! Facere consequuntur eligendi inventore molestias explicabo earum autem magnam quidem!
+Ipsam recusandae illum nihil ipsum adipisci eos, cum, fugit ad sit consectetur esse vel itaque! Sed consequatur accusantium velit aut reprehenderit eius reiciendis, dicta aperiam pariatur facere voluptatum nihil dolores?
+Aspernatur reprehenderit ad itaque quos animi eaque reiciendis molestias repudiandae, voluptatibus assumenda voluptate at ipsa. Aliquam quod quia ex repellendus excepturi nesciunt. Maiores velit reprehenderit fugiat vitae distinctio nobis corrupti.
+Nam minima ipsam, debitis aliquid maxime iusto vitae assumenda accusamus numquam! Distinctio impedit iure quis libero recusandae eligendi, earum architecto, officiis, facilis quae veritatis nesciunt. Quasi neque numquam voluptate maiores.
+Porro nihil inventore enim officia blanditiis autem neque aut architecto tenetur dolores velit, accusantium provident sapiente sed nobis quibusdam reiciendis, odio, repudiandae reprehenderit iste rerum deserunt dolorum. Fuga, illum placeat!</p><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error aspernatur sunt nisi iste autem veniam perferendis nesciunt debitis corporis ipsum! Facere consequuntur eligendi inventore molestias explicabo earum autem magnam quidem!
+Ipsam recusandae illum nihil ipsum adipisci eos, cum, fugit ad sit consectetur esse vel itaque! Sed consequatur accusantium velit aut reprehenderit eius reiciendis, dicta aperiam pariatur facere voluptatum nihil dolores?
+Aspernatur reprehenderit ad itaque quos animi eaque reiciendis molestias repudiandae, voluptatibus assumenda voluptate at ipsa. Aliquam quod quia ex repellendus excepturi nesciunt. Maiores velit reprehenderit fugiat vitae distinctio nobis corrupti.
+Nam minima ipsam, debitis aliquid maxime iusto vitae assumenda accusamus numquam! Distinctio impedit iure quis libero recusandae eligendi, earum architecto, officiis, facilis quae veritatis nesciunt. Quasi neque numquam voluptate maiores.
+Porro nihil inventore enim officia blanditiis autem neque aut architecto tenetur dolores velit, accusantium provident sapiente sed nobis quibusdam reiciendis, odio, repudiandae reprehenderit iste rerum deserunt dolorum. Fuga, illum placeat!</p><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error aspernatur sunt nisi iste autem veniam perferendis nesciunt debitis corporis ipsum! Facere consequuntur eligendi inventore molestias explicabo earum autem magnam quidem!
+Ipsam recusandae illum nihil ipsum adipisci eos, cum, fugit ad sit consectetur esse vel itaque! Sed consequatur accusantium velit aut reprehenderit eius reiciendis, dicta aperiam pariatur facere voluptatum nihil dolores?
+Aspernatur reprehenderit ad itaque quos animi eaque reiciendis molestias repudiandae, voluptatibus assumenda voluptate at ipsa. Aliquam quod quia ex repellendus excepturi nesciunt. Maiores velit reprehenderit fugiat vitae distinctio nobis corrupti.
+Nam minima ipsam, debitis aliquid maxime iusto vitae assumenda accusamus numquam! Distinctio impedit iure quis libero recusandae eligendi, earum architecto, officiis, facilis quae veritatis nesciunt. Quasi neque numquam voluptate maiores.
+Porro nihil inventore enim officia blanditiis autem neque aut architecto tenetur dolores velit, accusantium provident sapiente sed nobis quibusdam reiciendis, odio, repudiandae reprehenderit iste rerum deserunt dolorum. Fuga, illum placeat!</p><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error aspernatur sunt nisi iste autem veniam perferendis nesciunt debitis corporis ipsum! Facere consequuntur eligendi inventore molestias explicabo earum autem magnam quidem!
+Ipsam recusandae illum nihil ipsum adipisci eos, cum, fugit ad sit consectetur esse vel itaque! Sed consequatur accusantium velit aut reprehenderit eius reiciendis, dicta aperiam pariatur facere voluptatum nihil dolores?
+Aspernatur reprehenderit ad itaque quos animi eaque reiciendis molestias repudiandae, voluptatibus assumenda voluptate at ipsa. Aliquam quod quia ex repellendus excepturi nesciunt. Maiores velit reprehenderit fugiat vitae distinctio nobis corrupti.
+Nam minima ipsam, debitis aliquid maxime iusto vitae assumenda accusamus numquam! Distinctio impedit iure quis libero recusandae eligendi, earum architecto, officiis, facilis quae veritatis nesciunt. Quasi neque numquam voluptate maiores.
+Porro nihil inventore enim officia blanditiis autem neque aut architecto tenetur dolores velit, accusantium provident sapiente sed nobis quibusdam reiciendis, odio, repudiandae reprehenderit iste rerum deserunt dolorum. Fuga, illum placeat!
+            </p>
+
+    </main>
+
+
+
+    <script>
+        const containerRed = document.querySelector('.container');
+
+        const handleIntersectionParse = handleIntersection();
+
+        const intersection = new IntersectionObserver(handleIntersectionParse, {
+            threshold: 0.5,
+        });
+        intersection.observe(containerRed);
+
+        function handleIntersection(){
+            let count = 0;
+            const aditicionAtCount = (reset) => {
+                const resetCount = reset;
+                if (resetCount) {
+                    count += 1
+                    console.log(`This is the count ${count}`);
+                    return count;
+                }
+                else {
+                    return count = 0;
+                }
+            }
+            return aditicionAtCount;
+        }
+    </script>
+</body>
+</html>
