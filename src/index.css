@@ -27,10 +27,42 @@ body {
     display: flex;
     justify-content: center;
 }
+.mediaPlayer{
+    width: 50vw;
+    height: 75%;
+}
 .video {
-    position: relative;
+    width: 100%;
     height: 100%;
 }
 .controllers {
     position: absolute;
+}
+.subscribed {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.ads {
+    position: absolute;
+    width: 100%;
+    height: 12%;
+    bottom: 0;
+    margin: 12px;
+}
+.ads__link {
+    text-decoration: none;
+    display: flex;
+    color: #1221;
+}
+.ads__link div {
+    display: flex;
+    flex-direction: column;
+}
+
+@media(max-width: 800px){
+    .main {
+        display: block;
+    }
 }

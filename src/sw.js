@@ -22,15 +22,15 @@ self.addEventListener('fetch', event => {
 async function precache(){
     const cache = await caches.open(VERSION);
     return cache.addAll([
-        './',
-        './index.html',
-        './terms.html',
-        './index.js',
-        './MediaPlayer.js',
-        './plugins/AutoPause.js',
-        './plugins/AutoPlay.js',
-        './index.css',
-        './video/Torbellino-colombia-Por Pareja.wmv.mp4',
+        // './',
+        // './index.html',
+        // './terms.html',
+        // './index.js',
+        // './MediaPlayer.js',
+        // './plugins/AutoPause.js',
+        // './plugins/AutoPlay.js',
+        // './index.css',
+        // './video/Torbellino-colombia-Por Pareja.wmv.mp4',
     ])
 }
 
